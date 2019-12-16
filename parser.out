@@ -1,0 +1,139 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ABRECOMENT
+    FECHACOMENT
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> declaration-list
+Rule 2     declaration-list -> declaration-list declaration
+Rule 3     declaration-list -> declaration
+Rule 4     declaration -> var-declaration
+Rule 5     declaration -> fun-declaration
+Rule 6     var-declaration -> type-specifier ID PONTOVIRG
+Rule 7     var-declaration -> type-specifier ID ECOLCHETE NUMERO DCOLCHETE PONTOVIRG
+Rule 8     type-specifier -> INT
+Rule 9     type-specifier -> VOID
+Rule 10    fun-declaration -> type-specifier ID DPAREN params EPAREN compound-stmt
+Rule 11    params -> params-list
+Rule 12    params -> VOID
+Rule 13    params-list -> params-list VIRGULA param
+Rule 14    params-list -> param
+Rule 15    param -> type-specifier ID
+Rule 16    param -> type-specifier ID DCOLCHETE ECOLCHETE
+Rule 17    compound-stmt -> ECHAVE local-declarations statement-list DCHAVE
+Rule 18    local-declarations -> local-declarations var-declaration
+Rule 19    local-declarations -> empty
+Rule 20    statement-list -> statement-list statement
+Rule 21    statement-list -> empty
+Rule 22    statement -> expression-stmt
+Rule 23    statement -> compound-stmt
+Rule 24    statement -> selection-stmt
+Rule 25    statement -> iteration-stmt
+Rule 26    statement -> return-stmt
+Rule 27    expression-stmt -> expression PONTOVIRG
+Rule 28    expression-stmt -> PONTOVIRG
+Rule 29    selection-stmt -> IF EPAREN expression DPAREN statement
+Rule 30    selection-stmt -> IF EPAREN expression DPAREN statement ELSE statement
+Rule 31    iteration-stmt -> WHILE EPAREN expression DPAREN statement
+Rule 32    return-stmt -> RETURN PONTOVIRG
+Rule 33    return-stmt -> RETURN expression PONTOVIRG
+Rule 34    expression -> var RECEBE expression PONTOVIRG
+Rule 35    expression -> simple-expression
+Rule 36    var -> ID
+Rule 37    var -> ID DCOLCHETE expression ECOLCHETE
+Rule 38    simple-expression -> additive-expression relop additive-expression
+Rule 39    simple-expression -> additive-expression
+Rule 40    relop -> MAIOR
+Rule 41    relop -> MENOR
+Rule 42    relop -> IGUAL
+Rule 43    relop -> MAIORIGUAL
+Rule 44    relop -> MENORIGUAL
+Rule 45    relop -> DIFERENTE
+Rule 46    additive-expression -> additive-expression addop term
+Rule 47    additive-expression -> term
+Rule 48    addop -> MAIS
+Rule 49    addop -> MENOS
+Rule 50    term -> term mulop factor
+Rule 51    term -> factor
+Rule 52    mulop -> VEZES
+Rule 53    mulop -> DIVIDE
+Rule 54    factor -> EPAREN expression DPAREN
+Rule 55    factor -> var
+Rule 56    factor -> call
+Rule 57    factor -> NUMERO
+Rule 58    call -> ID DPAREN args EPAREN
+Rule 59    args -> arg-list
+Rule 60    args -> empty
+Rule 61    arg-list -> arg-list VIRGULA expression
+Rule 62    arg-list -> expression
+
+Terminals, with rules where they appear
+
+ABRECOMENT           : 
+DCHAVE               : 17
+DCOLCHETE            : 7 16 37
+DIFERENTE            : 45
+DIVIDE               : 53
+DPAREN               : 10 29 30 31 54 58
+ECHAVE               : 17
+ECOLCHETE            : 7 16 37
+ELSE                 : 30
+EPAREN               : 10 29 30 31 54 58
+FECHACOMENT          : 
+ID                   : 6 7 10 15 16 36 37 58
+IF                   : 29 30
+IGUAL                : 42
+INT                  : 8
+MAIOR                : 40
+MAIORIGUAL           : 43
+MAIS                 : 48
+MENOR                : 41
+MENORIGUAL           : 44
+MENOS                : 49
+NUMERO               : 7 57
+PONTOVIRG            : 6 7 27 28 32 33 34
+RECEBE               : 34
+RETURN               : 32 33
+VEZES                : 52
+VIRGULA              : 13 61
+VOID                 : 9 12
+WHILE                : 31
+error                : 
+
+Nonterminals, with rules where they appear
+
+additive-expression  : 38 38 39 46
+addop                : 46
+arg-list             : 59 61
+args                 : 58
+call                 : 56
+compound-stmt        : 10 23
+declaration          : 2 3
+declaration-list     : 1 2
+empty                : 19 21 60
+expression           : 27 29 30 31 33 34 37 54 61 62
+expression-stmt      : 22
+factor               : 50 51
+fun-declaration      : 5
+iteration-stmt       : 25
+local-declarations   : 17 18
+mulop                : 50
+param                : 13 14
+params               : 10
+params-list          : 11 13
+program              : 0
+relop                : 38
+return-stmt          : 26
+selection-stmt       : 24
+simple-expression    : 35
+statement            : 20 29 30 30 31
+statement-list       : 17 20
+term                 : 46 47 50
+type-specifier       : 6 7 10 15 16
+var                  : 34 55
+var-declaration      : 4 18
+
